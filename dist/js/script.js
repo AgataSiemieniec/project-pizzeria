@@ -86,6 +86,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion(){
@@ -176,6 +177,17 @@
           
           /* END ELSE IF: if option is not selected and option is default */
           } 
+
+          const optionImages = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-'+ optionId);
+          if (optionSelected){
+            for(let images of optionImages){
+              images.classList.add(classNames.menuProduct.imageVisible);
+            }
+          } else {
+            for(let images of optionImages){
+              images.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
       /* END LOOP: for each optionId in param.options */
         }
       /* END LOOP: for each paramId in thisProduct.data.params */
@@ -195,6 +207,7 @@
       console.log('thisApp.data:', thisApp.data);
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
+        console.log(productData);
       }
     },
     init: function(){
