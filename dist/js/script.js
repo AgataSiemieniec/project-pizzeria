@@ -190,16 +190,16 @@
               images.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
-      /* END LOOP: for each optionId in param.options */
+          /* END LOOP: for each optionId in param.options */
         }
       /* END LOOP: for each paramId in thisProduct.data.params */
       }
 
-    /*mutiply price by amount */
-    price *= thisProduct.amountWidget.value; 
+      /*mutiply price by amount */
+      price *= thisProduct.amountWidget.value; 
     
-    /* set the contents of thisProduct.priceElem to be the value of variable price */
-    thisProduct.priceElem.innerHTML = price;
+      /* set the contents of thisProduct.priceElem to be the value of variable price */
+      thisProduct.priceElem.innerHTML = price;
     }
 
     initAmountWidget(){
