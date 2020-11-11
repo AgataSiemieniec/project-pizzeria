@@ -266,7 +266,9 @@
     
     announce() {
       const thisWidget = this;
-      const event = new Event('updated');
+      const event = new CustomEvent('updated', {
+        bubbles: true
+      });
       thisWidget.element.dispatchEvent(event);
     }
   }
@@ -277,6 +279,7 @@
       thisCart.getElements(element);
       thisCart.initActions();
       // console.log('new Cart:', thisCart);
+      thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
     }
     getElements(element) {
       const thisCart = this;
@@ -284,12 +287,21 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = document.querySelector(select.cart.productList);
+
+      thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
+
+      for(let key of thisCart.renderTotalsKeys){
+        thisCart.dom[key] = thisCart.dom.wrapper.querySelectorAll(select.cart[key]);
+      }
     }
     initActions() {
       const thisCart = this;
       thisCart.dom.toggleTrigger.addEventListener('click', function() {
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
+      thisCart.dom.productList.addEventListener('updated', function(){
+        thisCart.update();
+      })
     }
     add(menuProduct) {
       // console.log(this);
@@ -308,6 +320,31 @@
 
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       // console.log('thisCart.products', thisCart.products);
+
+      thisCart.update();
+    }
+    update(){
+      const thisCart = this;
+
+      thisCart.totalNumber = 0;
+      thisCart.subtotalPrice = 0;
+      
+      for(let product of thisCart.products){
+        thisCart.subtotalPrice += product.price;
+        thisCart.totalNumber += product.amount;
+      }
+      thisCart.totalPrice =  thisCart.subtotalPrice + thisCart.deliveryFee;
+
+      console.log('this.totalNumber',this.totalNumber);
+      console.log('this.subtotalPrice',this.subtotalPrice);
+      console.log('this.totalPrice',this.totalPrice);
+
+      for(let key of thisCart.renderTotalsKeys){
+        for(let elem of thisCart.dom[key]){
+          elem.innerHTML = thisCart[key];
+        }
+      }
+
     }
   }
   class CartProduct {
@@ -323,6 +360,7 @@
       thisCartProduct.initAmountWidget();
       // console.log('new CartProduct', thisCartProduct);
       // console.log('productData', menuProduct);
+      
     }
     getElements(element) {
       const thisCartProduct = this;
