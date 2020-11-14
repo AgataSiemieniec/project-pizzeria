@@ -293,6 +293,8 @@
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = document.querySelector(select.cart.productList);
       thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
+      thisCart.dom.phone = thisCart.dom.wrapper.querySelector(select.cart.phone);
+      thisCart.dom.address = thisCart.dom.wrapper.querySelector(select.cart.address);
 
       thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
 
@@ -372,8 +374,19 @@
 
       const payload = {
         address: 'test',
+        totalPrice: thisCart.totalPrice,      
+        totalNumber: thisCart.totalNumber,
         totalPrice: thisCart.totalPrice,
+        subtotalPrice: thisCart.subtotalPrice,
+        deliveryFee: thisCart.deliveryFee,
+        phone: thisCart.phone,
+        products: [],
       };
+
+      for(let product of thisCart.products){
+        product.getData();
+        payload.products.push(product.getData());
+      }
 
       const options = {
         method: 'POST',
@@ -449,6 +462,19 @@
         event.preventDefault();
         thisCartProduct.remove();
       });
+    }
+    getData() {
+      const thisCartProduct = this;
+
+      const payload = {
+
+        id: thisCartProduct.id,
+        amount: thisCartProduct.amount,
+        price: thisCartProduct.price,
+        priceSingle: thisCartProduct.priceSingle,
+        params: thisCartProduct.params,
+      };
+      return payload;
     }
   }
   const app = {

@@ -206,22 +206,36 @@
     {
       "address": "test",
       "totalPrice": 29,
+      "totalNumber": 1,
+      "subtotalPrice": 9,
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 1,
+          "price": 9,
+          "priceSingle": 9,
+          "params": {}
+        }
+      ],
       "id": 1
     },
     {
       "address": "test",
       "totalPrice": 29,
+      "totalNumber": 1,
+      "subtotalPrice": 9,
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 1,
+          "price": 9,
+          "priceSingle": 9,
+          "params": {}
+        }
+      ],
       "id": 2
-    },
-    {
-      "address": "test",
-      "totalPrice": 29,
-      "id": 3
-    },
-    {
-      "address": "test",
-      "totalPrice": 29,
-      "id": 4
     }
   ]
 }
