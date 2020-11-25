@@ -7,7 +7,7 @@ class BaseWidget {
     thisWidget.dom.wrapper = wrapperElement;
 
     thisWidget.correctValue = initalValue;
-}
+  }
 
   get value(){
     const thisWidget = this;

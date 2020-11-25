@@ -1,12 +1,12 @@
 class BaseWidget {
   constructor(wrapperElement, initalValue){
-      const thisWidget = this;
+    const thisWidget = this;
 
-      thisWidget.dom = {};
+    thisWidget.dom = {};
 
-      thisWidget.dom.wrapper = wrapperElement;
+    thisWidget.dom.wrapper = wrapperElement;
 
-      thisWidget.correctValue = initalValue;
+    thisWidget.correctValue = initalValue;
   }
 
   get value(){
@@ -28,9 +28,9 @@ class BaseWidget {
     thisWidget.renderValue();
   }
   setValue(value){
-      const thisWidget = this;
+    const thisWidget = this;
 
-      thisWidget.value = value;
+    thisWidget.value = value;
   }
 
   parseValue(value){
