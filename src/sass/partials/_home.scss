@@ -31,11 +31,11 @@
 
   p {
     color: $color-light;
-    margin: 10px;
-    opacity: 0;
     width: 100%;
     transition: $transition;
     font-size: 13px;
+    position: absolute;
+    top: 100%;
   }
 }
 
@@ -45,7 +45,7 @@
 }
 
 .home-item:hover p {
-  transform: translateY(-70px);
+  transform: translate(-10%, -50px);
   opacity: 1;
   transition: $transition;
 }
@@ -71,6 +71,8 @@
   width: 100%;
   background-size: cover;
   border-radius: $radius;
+  overflow: hidden; 
+  position: relative;
 }
 
 .home-hours {
@@ -85,8 +87,6 @@
 .carousel-wrapper{
   margin: 100px 0 120px 0;
   width: 100%;
-
-
 
   .image {
     width: 195px;
