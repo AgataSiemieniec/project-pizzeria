@@ -1,0 +1,196 @@
+/* Global */
+
+.home_main {
+  background: $color-light;
+  padding: 71px 46px;
+  margin: 40px auto;
+  border-radius: $radius;
+  width: 100%;
+}
+
+/* Order - Booking - Hours */
+
+.home-item {
+  text-align: center;
+  padding: 25px;
+  transition: $transition;
+
+  .btn p {
+    text-decoration: none;
+  }
+
+  .home-item-title {
+    color: $color-light;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: $font-header;
+    margin: 10px;
+    transition: $transition;
+
+  }
+
+  p {
+    color: $color-light;
+    margin: 10px;
+    opacity: 0;
+    width: 100%;
+    transition: $transition;
+    font-size: 13px;
+  }
+}
+
+.home-item:hover a {
+  transform: translateY(-20px);
+  transition: $transition;
+}
+
+.home-item:hover p {
+  transform: translateY(-70px);
+  opacity: 1;
+  transition: $transition;
+}
+
+.home-row {
+  justify-content: center;
+  display: flex;
+  height: 125px;
+}
+
+.home-order  {
+  background-image: url(../../images/home/pizza-1.jpg);
+  cursor: pointer;
+}
+
+.home-booking {
+  background-image: url(../../images/home/pizza-2.jpg);
+  cursor: pointer;
+}
+
+.box {
+  margin: 4px;
+  width: 100%;
+  background-size: cover;
+  border-radius: $radius;
+}
+
+.home-hours {
+  height: 120px;
+  background: $color-main;
+  margin: 4px;
+  width: 600px;
+  border-radius: $radius;
+
+}
+/* Carousel */
+.carousel-wrapper{
+  margin: 100px 0 120px 0;
+  width: 100%;
+
+
+
+  .image {
+    width: 195px;
+    height: 195px;
+    position: absolute;
+    object-fit: cover;
+
+    img {
+      border-radius: $radius;
+      width: 195px;
+      height: 195px;
+      object-fit: cover;
+    }
+  }
+
+  .carousel-description {
+    margin-left: 230px;
+    width: 400px;
+    position: relative;
+    padding-top: 20px;
+
+    p {
+      font-size: 13px;
+      line-height: 1.9;
+      font-family: $font-text;
+    }
+
+    .title {
+      font-style: bold;
+    }
+
+    .author {
+      font-style: italic;
+      font-size: 14px;
+    }
+  }
+
+  .carousel-indicators{
+    li {
+      color: $color-dark;
+    }
+  }
+}
+
+/* Gallery */
+
+.gallery {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+
+  .gallery-row{
+    display: flex;
+    justify-content: center;
+  }
+
+  .gallery-image {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    position: relative;
+    cursor: pointer;
+    transition: $transition;
+  }
+
+  img {
+    border-radius: $radius;
+    width: 195px;
+    height: 195px;
+    object-fit: cover;
+  }
+
+  .gallery-icon {
+    text-decoration: none;
+    position: absolute;
+    justify-content: center;
+    align-self: center;
+    opacity: 0;
+
+    .fas {
+      font-size: 22px;
+      padding: 8px;
+      color: $color-light;
+    }
+
+    .fas:hover {
+      color: $color-main;
+    }
+  }
+
+  .gallery-image:hover {
+    filter: brightness(0.6);
+
+    .gallery-icon {
+      opacity: 1;
+    }
+  }
+}
+/* Footer */
+footer {
+  margin-top: 20px;
+
+  a {
+    color: $color-main;
+  }
+}
