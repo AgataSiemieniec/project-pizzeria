@@ -15,7 +15,7 @@
   padding: 25px;
   transition: $transition;
 
-  .btn p {
+  .btn{
     text-decoration: none;
   }
 
@@ -34,8 +34,8 @@
     width: 100%;
     transition: $transition;
     font-size: 13px;
-    position: absolute;
-    top: 100%;
+    position: relative;
+    top: 30px;
   }
 }
 
@@ -44,8 +44,13 @@
   transition: $transition;
 }
 
+.home-item:hover .home-item-title {
+  transform: translate(0, -20px);
+  transition: $transition;
+}
+
 .home-item:hover p {
-  transform: translate(-10%, -50px);
+  transform: translate(0, -50px);
   opacity: 1;
   transition: $transition;
 }
@@ -93,14 +98,14 @@
     float: left;
   }
   
-    img {
-      border-radius: $radius;
-      position: relative;
-      object-fit: cover;
-      width: 195px;
-      height: 195px;
-      float: left;
-    }
+  img {
+    border-radius: $radius;
+    position: relative;
+    object-fit: cover;
+    width: 195px;
+    height: 195px;
+    float: left;
+  }
   
 
   .carousel-description {
@@ -180,8 +185,8 @@
   }
 
   .gallery-image:hover {
-    filter: brightness(0.6);
-
+    filter: brightness(0.8);
+    
     .gallery-icon {
       opacity: 1;
     }
