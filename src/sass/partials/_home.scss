@@ -71,7 +71,7 @@
   width: 100%;
   background-size: cover;
   border-radius: $radius;
-  overflow: hidden; 
+  overflow: hidden;
   position: relative;
 }
 
@@ -81,30 +81,31 @@
   margin: 4px;
   width: 600px;
   border-radius: $radius;
-
 }
+
 /* Carousel */
+
 .carousel-wrapper{
   margin: 100px 0 120px 0;
   width: 100%;
 
-  .image {
-    width: 195px;
-    height: 195px;
-    position: absolute;
-    object-fit: cover;
-
+  .carousel-cell{
+    float: left;
+  }
+  
     img {
       border-radius: $radius;
+      position: relative;
+      object-fit: cover;
       width: 195px;
       height: 195px;
-      object-fit: cover;
+      float: left;
     }
-  }
+  
 
   .carousel-description {
     margin-left: 230px;
-    width: 400px;
+    width: 380px;
     position: relative;
     padding-top: 20px;
 
