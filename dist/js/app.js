@@ -10,6 +10,7 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children; //kontener wszystkich stron +dziecci kontenera stron 
     thisApp.navLinks= document.querySelectorAll(select.nav.links); 
+    thisApp.buttons = document.querySelectorAll(select.nav.buttons);
 
     const idFromHash = window.location.hash.replace('#/', '');
 
@@ -36,6 +37,18 @@ const app = {
         thisApp.activatePage(id);
 
         /* change URL hash */
+        window.location.hash = '#/' + id;
+      });
+    }
+
+    for (let button of thisApp.buttons){
+      button.addEventListener('click', function(event){
+        const clickedElement = this;
+        event.preventDefault();
+        const id = clickedElement.getAttribute('href').replace('#', '');
+
+        thisApp.activatePage(id);
+
         window.location.hash = '#/' + id;
       });
     }
